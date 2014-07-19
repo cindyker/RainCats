@@ -1,0 +1,8 @@
+name: com.minecats.cindyk.raincats.RainCats
+version: ${project.version}
+description: Cats falling from the sky
+author: cindy_k
+main: com.minecats.cindyk.raincats.RainCats
+commands:
+    raincats:
+        description: raincats [player]
