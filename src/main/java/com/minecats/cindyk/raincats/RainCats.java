@@ -25,7 +25,7 @@ public class RainCats extends JavaPlugin implements CommandExecutor {
 
         plugin = this;
 
-        getServer().getPluginManager().registerEvents(new CatListener(),this);
+     //   getServer().getPluginManager().registerEvents(new CatListener(),this);
         getCommand("raincats").setExecutor(this);
 
     }
@@ -54,21 +54,37 @@ public class RainCats extends JavaPlugin implements CommandExecutor {
             else
             {
                 getLogger().info("Console issued command : Raining cats on " + args[0]);
-                for(int x=0;x<30;x++)
-                {   int adjust = x%4;
-                    Raining rr = new Raining(getServer().getPlayer(args[0]),adjust);
-                }
+
+                    Raining rr = new Raining(this);
+                    rr.rain(getServer().getPlayer(args[0]).getLocation(),64,5);
+
+
 
             }
         }
         else
         {
-            getLogger().info("Raining cats on " + sender.getName());
-            for(int x=0;x<30;x++)
+            if(args.length == 1 )
             {
-                int adjust = x%4;
-                Raining rr = new Raining(getServer().getPlayer(sender.getName()),adjust);
+                if( args[0].equalsIgnoreCase("all"))
+                {
+                    Raining rr = new Raining(this);
+                    for(Player p:getServer().getOnlinePlayers())
+                    {
+                        if(p.isOnline())
+                            rr.rain(p.getLocation(),64,5);
+                    }
+                }
+
             }
+            if(args.length == 0)
+            {
+                getLogger().info("Raining cats on " + sender.getName());
+
+                Raining rr = new Raining(this);
+                rr.rain(getServer().getPlayer(sender.getName()).getLocation(),64,5);
+            }
+
 
         }
 

@@ -16,13 +16,13 @@ public class CatListener implements Listener {
     void onOcelotSpawn(EntitySpawnEvent event)
     {
 
-        if(event.getEntity().getType() == EntityType.OCELOT)
-        {
-            Ocelot oc = (Ocelot) event.getEntity();
-            RainCats.plugin.getLogger().info("ESE: " + oc.getUniqueId().toString() + " at " + oc.getLocation().toString());
-            //Nevermind...
-
-        }
+//        if(event.getEntity().getType() == EntityType.OCELOT)
+//        {
+//            Ocelot oc = (Ocelot) event.getEntity();
+//            RainCats.plugin.getLogger().info("ESE: " + oc.getUniqueId().toString() + " at " + oc.getLocation().toString());
+//            //Nevermind...
+//
+//        }
 
     }
 }
